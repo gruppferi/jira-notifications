@@ -8,6 +8,7 @@ class LogFormatter(logging.Formatter):
     This formatter adds color coding to log messages based on their log level.
 
     Attributes:
+        
         grey (str): ANSI escape code for grey color.
         green (str): ANSI escape code for green color.
         yellow (str): ANSI escape code for yellow color.
@@ -17,6 +18,7 @@ class LogFormatter(logging.Formatter):
         white (str): ANSI escape code for white color.
         log_format (str): The format of log messages.
         FORMATS (dict): A dictionary that maps log levels to their respective log formats.
+    :no-index:
     """
     grey = '\x1b[32;1m'
     green = '\x1b[32;1m'

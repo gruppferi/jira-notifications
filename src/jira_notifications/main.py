@@ -1,8 +1,8 @@
 import argparse
 import sys
-from helper import Helper
-from logger import get_logger
-from triggers import Triggers
+from jira_notifications.helper import Helper
+from jira_notifications.logger import get_logger
+from jira_notifications.triggers import Triggers
 import sched
 import time
 

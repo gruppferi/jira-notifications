@@ -1,6 +1,6 @@
-from jira_client import Jira
-from toast import Toast
-from helper import Helper
+from jira_notifications.jira_client import Jira
+from jira_notifications.toast import Toast
+from jira_notifications.helper import Helper
 import platform
 
 class Triggers:

@@ -40,12 +40,12 @@ class Helper:
     def is_time_equal_to_input(self, daily_toast_time):
         """
         Checks if the given time is equal to the current time.
-
         Parameters:
             daily_toast_time (str): The time to compare with the current time in the format "HH:MM".
 
         Returns:
             bool: True if the given time is equal to the current time, False otherwise.
+        :no-index:
         """
         current_time = datetime.datetime.now().strftime("%H:%M")
         if daily_toast_time  == str(current_time):
