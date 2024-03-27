@@ -1,27 +1,62 @@
-<!-- These are examples of badges you might want to add to your README:
-     please update the URLs accordingly
-
-[![Built Status](https://api.cirrus-ci.com/github/<USER>/jira-notifications.svg?branch=main)](https://cirrus-ci.com/github/<USER>/jira-notifications)
-[![ReadTheDocs](https://readthedocs.org/projects/jira-notifications/badge/?version=latest)](https://jira-notifications.readthedocs.io/en/stable/)
-[![Coveralls](https://img.shields.io/coveralls/github/<USER>/jira-notifications/main.svg)](https://coveralls.io/r/<USER>/jira-notifications)
-[![PyPI-Server](https://img.shields.io/pypi/v/jira-notifications.svg)](https://pypi.org/project/jira-notifications/)
-[![Conda-Forge](https://img.shields.io/conda/vn/conda-forge/jira-notifications.svg)](https://anaconda.org/conda-forge/jira-notifications)
-[![Monthly Downloads](https://pepy.tech/badge/jira-notifications/month)](https://pepy.tech/project/jira-notifications)
-[![Twitter](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&label=Twitter)](https://twitter.com/jira-notifications)
--->
-
 [![Project generated with PyScaffold](https://img.shields.io/badge/-PyScaffold-005CA0?logo=pyscaffold)](https://pyscaffold.org/)
+![Static Badge](https://img.shields.io/badge/docstring-codiumate-%3F?color=blue)
 
 # jira-notifications
 
-> Add a short description here!
+Jira Notifications is a Python package that leverages system D-Bus using the `notify` package to send system toast notifications about new tickets in Jira. It allows users to configure the period for checking new tickets and also sends a daily notification about newly created tickets at a specified time.
 
-A longer description of your project goes here...
+## Installation
 
+You can install Jira Notifications via pip:
 
-<!-- pyscaffold-notes -->
+```
+pip install jira-notifications
+```
+## Usage
+
+After installation, you can use the `jira-notifications` command to generate sample config, update the yaml with correct information
+
+```bash
+jira-notifications -g jira.yaml
+```
+### Linux (Debian Based)
+* The Linux version has feature that each ticket is clickable and opens that ticket on your browser
+
+#### Make it run a system package
+```
+[Unit]
+Description=jira-notifications Daemon
+After=network.target
+
+[Service]
+Type=simple
+User=%u
+WorkingDirectory=/home/%u
+ExecStart=/home/%u/.local/bin/jira-notifications -c /home/%u/Documents/config.yaml
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+
+```
+
+```
+sudo systemctl daemon-reload
+sudo systemctl enable jira-notifications.service
+sudo systemctl start jira-notifications.service
+
+```
+### Windows (10, 11)
+!!! MISSING
+-> Any PR to fix the following issues would be highly welcome, since I am not windows guy  &#x1F612; &#x1F610; I tried alot, couldn't make following to work 
+* Basic test works the program runs and show toasts but each ticket is not clickable. clicking on toast opens the jira.
+* No service, No like systemD in linux for windows to start automatically and run it forever.
+It is highly appreciated if someone can create PR and fix the above two issues.
+* Can not show more 6 lines on toast
+
 
 ## Note
 
 This project has been set up using PyScaffold 4.5. For details and usage
-information on PyScaffold see https://pyscaffold.org/.
+information on PyScaffold see https://pyscaffold.org/. <br>
+This project used Codiumate, for details see https://www.codium.ai/

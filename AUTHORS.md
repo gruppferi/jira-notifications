@@ -1,3 +1,3 @@
 # Contributors
 
-* Ferdows Shahryar [ferdows.shahryar@swarco.com](mailto:ferdows.shahryar@swarco.com)
+* Ferdows Shahryar [s.ferdows@hotmail.com](mailto:s.ferdows@hotmail.com)
