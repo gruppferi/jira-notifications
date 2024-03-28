@@ -30,25 +30,26 @@ After=network.target
 
 [Service]
 Type=simple
-User=%u
-WorkingDirectory=/home/%u
-ExecStart=/home/%u/.local/bin/jira-notifications -c /home/%u/Documents/config.yaml
+WorkingDirectory=/home/<username>
+ExecStart=/home/<username>/.local/bin/jira_notifications -c /home/<username>/Documents/jira-config.yaml
 Restart=always
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=default.target
+
 
 ```
 
 ```
-sudo systemctl daemon-reload
-sudo systemctl enable jira-notifications.service
-sudo systemctl start jira-notifications.service
+systemctl --user enable jira-notifications.service
+systemctl --user start jira-notifications.service
+systemctl --user status jira-notifications.service
+
 
 ```
 ### Windows (10, 11)
 !!! MISSING
--> Any PR to fix the following issues would be highly welcome, since I am not windows guy  &#x1F612; &#x1F610; I tried alot, couldn't make following to work 
+-> Any PR to fix the following issues would be highly welcome, since I am not windows guy  &#x1F612; &#x1F610; I tried alot, couldn't make following to work
 * Basic test works the program runs and show toasts but each ticket is not clickable. clicking on toast opens the jira.
 * No service, No like systemD in linux for windows to start automatically and run it forever.
 It is highly appreciated if someone can create PR and fix the above two issues.
